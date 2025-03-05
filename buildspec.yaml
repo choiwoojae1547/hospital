@@ -5,6 +5,8 @@ phases:
     commands:
       - echo "Logging in to Amazon ECR..."
       - aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin 183631310061.dkr.ecr.ap-northeast-2.amazonaws.com
+      - echo "Logging in to Docker Hub..."
+      - echo "$DOCKER_USERNAME" | docker login --username "$DOCKER_USERNAME" --password-stdin
       - echo "Installing runtime..."
       - curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
       - sudo apt-get install -y nodejs
