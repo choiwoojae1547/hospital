@@ -1,0 +1,4 @@
+docker build -t hospital .
+docker tag my-applatest 183631310061.dkr.ecr.ap-northeast-2.amazonaws.comhospital:v1
+$(aws ecr get-login --no-include-email --region ap-northeast-2)
+docker push 183631310061.dkr.ecr.ap-northeast-2.amazonaws.comhospital:v1
