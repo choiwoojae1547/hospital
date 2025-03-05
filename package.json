@@ -1,0 +1,28 @@
+{
+  "name": "hospital",
+  "version": "1.0.0",
+  "description": "A hospital management system",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hospital",
+    "management",
+    "nodejs"
+  ],
+  "author": "MuhanCloud",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "dotenv": "^8.2.0",
+    "mongoose": "^5.9.10"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
