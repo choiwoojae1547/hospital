@@ -2,18 +2,17 @@ version: 0.2
 
 phases:
   pre_build:
-    runtime-versions:
-      docker: 19  # 사용하는 Docker 버전 (예: Docker 19)
     commands:
       - echo "Logging in to Amazon ECR..."
       - aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin 183631310061.dkr.ecr.ap-northeast-2.amazonaws.com
-
+      - echo "Installing runtime..."
+      - curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+      - sudo apt-get install -y nodejs
   build:
     commands:
       - echo "Building Docker image..."
       - docker build -t hospital .
       - docker tag hospital:latest 183631310061.dkr.ecr.ap-northeast-2.amazonaws.com/hospital:v1
-
   post_build:
     commands:
       - echo "Pushing Docker image to ECR..."
