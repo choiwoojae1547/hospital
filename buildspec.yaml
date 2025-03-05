@@ -11,7 +11,7 @@ phases:
     commands:
       - echo "Building Docker image..."
       - docker build -f Dockerfile -t 183631310061.dkr.ecr.ap-northeast-2.amazonaws.com/hospital .
-      - docker tag hospital:latest 183631310061.dkr.ecr.ap-northeast-2.amazonaws.com/hospital:v1
+      - docker tag hospital:v1 183631310061.dkr.ecr.ap-northeast-2.amazonaws.com/hospital:v1
   post_build:
     commands:
       - echo "Pushing Docker image to ECR..."
