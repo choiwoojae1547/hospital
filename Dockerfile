@@ -17,5 +17,7 @@ RUN docker-php-ext-install pdo pdo_mysql
 # AWS SDK 및 기타 의존성 설치
 RUN composer install
 
+EXPOSE 80
+
 # 아파치 실행
 CMD ["apache2-foreground"]
