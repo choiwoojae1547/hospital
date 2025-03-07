@@ -1,9 +1,0 @@
-version: 0.0
-Resources:
-  - TargetService:
-      Type: AWS::ECS::Service
-      Properties:
-        TaskDefinition: "arn:aws:ecs:ap-northeast-2:183631310061:task/MuhanCluster/7cb79e115c564cfc8d35498ed7da08af"
-        LoadBalancerInfo:
-          ContainerName: "hospital-container"
-          ContainerPort: 80
