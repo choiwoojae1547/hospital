@@ -9,8 +9,7 @@ phases:
       # EKS 클러스터에 연결하기 위한 kubeconfig 설정
       - echo "Configuring kubectl for EKS..."
       - aws eks --region ap-northeast-2 update-kubeconfig --name muhanEKS
-      - echo "Updating kubeconfig for EKS..."
-      - aws eks --region ap-northeast-2 update-kubeconfig --name muhanEKS
+
   build:
     commands:
       - echo "Building Docker image..."
