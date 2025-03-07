@@ -3,7 +3,7 @@ name: Deploy to EKS
 on:
   push:
     branches:
-      - main  # main 브랜치에 푸시될 때마다 워크플로우 실행
+      - main
 
 jobs:
   deploy:
@@ -18,7 +18,7 @@ jobs:
       - name: Log in to Amazon ECR
         uses: aws-actions/amazon-ecr-login@v1
         with:
-          region: 'ap-northeast-2'  # ECR 리전 설정
+          region: 'ap-northeast-2'
 
       - name: Build Docker image
         run: |
@@ -28,10 +28,21 @@ jobs:
         run: |
           docker push ${{ secrets.AWS_ECR_REGISTRY }}/hospital:latest
 
-      - name: Set up kubectl
-        uses: aws-actions/configure-kubectl@v1  # v1로 버전 변경
-        with:
-          region: 'ap-northeast-2'  # EKS 리전 설정
+      - name: Install kubectl
+        run: |
+          curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
+          chmod +x ./kubectl
+          sudo mv ./kubectl /usr/local/bin/kubectl
+
+      - name: Set up AWS CLI
+        run: |
+          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws configure set region 'ap-northeast-2'
+
+      - name: Configure kubectl
+        run: |
+          aws eks --region ap-northeast-2 update-kubeconfig --name your-cluster-name
 
       - name: Deploy to EKS
         run: |
