@@ -29,7 +29,7 @@ jobs:
           docker push ${{ secrets.AWS_ECR_REGISTRY }}/hospital:latest
 
       - name: Set up kubectl
-        uses: aws-actions/configure-kubectl@v2  # v2로 버전 업데이트
+        uses: aws-actions/configure-kubectl@v1  # v1로 버전 변경
         with:
           region: 'ap-northeast-2'  # EKS 리전 설정
 
