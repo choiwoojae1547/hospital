@@ -1,5 +1,12 @@
 version: 0.2
 
+env:
+  variables:
+    AWS_ACCESS_KEY_ID: "your_access_key_id"
+    AWS_SECRET_ACCESS_KEY: "your_secret_access_key"
+    KUBECONFIG: "/root/.kube/config"  # kubectl이 사용할 kubeconfig 파일 경로
+
+
 phases:
   pre_build:
     commands:
