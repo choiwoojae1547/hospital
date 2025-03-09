@@ -22,6 +22,7 @@ phases:
       - docker push 183631310061.dkr.ecr.ap-northeast-2.amazonaws.com/hospital:v1
       - echo "updating ECR"
       - aws eks update-kubeconfig --name muhanEKS
+      - kubectl config view
       - echo "checking Connection to EKS Cluster Node"
       - kubectl get nodes
       - echo "Deploying to EKS..."
