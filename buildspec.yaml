@@ -24,7 +24,7 @@ phases:
       - aws eks update-kubeconfig --name muhanEKS
       - kubectl config view
       - echo "checking Connection to EKS Cluster Node"
-      - kubectl get nodes
+      - kubectl get nodes --v=8
       - echo "Deploying to EKS..."
       # Kubernetes 배포 파일을 사용하여 EKS에 배포
       - kubectl set image deployment/hospital-web hospital-web=183631310061.dkr.ecr.ap-northeast-2.amazonaws.com/hospital:v1 --record
