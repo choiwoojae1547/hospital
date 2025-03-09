@@ -24,6 +24,14 @@ phases:
       - aws eks update-kubeconfig --name muhanEKS
       - echo "Checking configure"
       - aws sts get-caller-identity
+      - echo "apply the service.yaml"
+      - kubectl apply -f service.yaml
+      - echo "apply the configmap.yaml"
+      - kubectl apply -f configmap.yaml
+
+      - echo "apply the deployment.yaml"
+      - kubectl apply -f deployment.yaml
+      
       - kubectl auth can-i get pods --all-namespaces
       - kubectl config view
       - echo "checking Connection to EKS Cluster Node"
