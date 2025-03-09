@@ -25,6 +25,7 @@ phases:
       - echo "Checking configure"
       - aws sts get-caller-identity
       - aws eks update-kubeconfig --name muhanEKS --region ap-northeast-2
+      - echo $KUBECONFIG
       - kubectl cluster-info
       - echo "apply the service.yaml"
       - kubectl apply -f service.yaml --validate=false
