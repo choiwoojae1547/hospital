@@ -14,7 +14,7 @@ try {
     echo "Connection successful!<br>";
 
     // SQL 쿼리 작성: hospital_db 테이블의 모든 데이터를 조회
-    $sql = "SELECT * FROM hospital_table"; // hospital_table을 실제 테이블 이름으로 변경하세요.
+    $sql = "SELECT * FROM reservations"; // reservations 테이블에서 모든 데이터를 조회
 
     // 쿼리 실행
     $stmt = $pdo->query($sql);
