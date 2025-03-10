@@ -5,10 +5,10 @@ metadata:
 data:
   config.php: |
     <?php
-    $host = getenv('DB_HOST');  // 환경 변수에서 값 가져오기
-    $dbname = getenv('DB_NAME');
-    $username = getenv('DB_USER');
-    $password = getenv('DB_PASSWORD');
+    $host = getenv('muhanrds.cxqu2e2cg5ww.ap-northeast-2.rds.amazonaws.com');  
+    $dbname = getenv('hospital)_db');
+    $username = getenv('admin');
+    $password = getenv('ehddnr99!');
 
     try {
         $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
