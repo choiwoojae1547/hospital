@@ -13,11 +13,6 @@ phases:
       - sudo curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
       - sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
       - kubectl version --client
-      - echo "Setting up AWS Access Key and Secret Key"
-      - export AWS_ACCESS_KEY_ID=your-access-key-id
-      - export AWS_SECRET_ACCESS_KEY=your-secret-access-key
-      - export AWS_DEFAULT_REGION=ap-northeast-2
-      - aws eks --region ap-northeast-2 update-kubeconfig --name muhanEKS
   build:
     commands:
       - echo "Building Docker image..."
