@@ -26,7 +26,7 @@ phases:
       - echo "updating ECR"
       - aws eks update-kubeconfig --name muhanEKS
       - aws eks update-kubeconfig --name muhanEKS --region ap-northeast-2
-      - kubectl get configmap aws-auth -n kube-system -o yaml
+      # kubectl get configmap aws-auth -n kube-system -o yaml
       - kubectl cluster-info
       - echo "apply the service.yaml"
       - kubectl apply -f service.yaml --validate=false
