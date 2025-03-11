@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: hospital-web
-        image: 183631310061.dkr.ecr.ap-northeast-2.amazonaws.com/hospital:latest  # v1 -> latest 로 변경
+        image: 183631310061.dkr.ecr.ap-northeast-2.amazonaws.com/hospital:v1  # v1 -> latest 로 변경
         ports:
         - containerPort: 80
         env:
