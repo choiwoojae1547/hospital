@@ -39,6 +39,13 @@ spec:
               key: password
         - name: DB_NAME
           value: "hospital_db"
+        
+        # Redis 관련 환경 변수 추가
+        - name: REDIS_HOST
+          value: "master.elasticachecluster.rabjjp.apn2.cache.amazonaws.com"  # Redis 클러스터 엔드포인트 (포트는 필요 없음)
+        - name: REDIS_PORT
+          value: "6379"  # Redis 기본 포트
+        
         volumeMounts:
         - name: config-volume
           mountPath: /var/www/html/config/  # ConfigMap 마운트 경로 유지
